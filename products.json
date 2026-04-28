@@ -1,0 +1,502 @@
+[
+  {
+    "id": "stroller-1",
+    "category": "strollers",
+    "subcategory": "lightweight",
+    "brand": "BabyZen",
+    "product_name": "YOYO2 Stroller",
+    "price_range": "High",
+    "price_aed": 1999,
+    "age_range": "6-48 months",
+    "age_min_months": 6,
+    "key_features": [
+      "cabin approved",
+      "one-hand fold",
+      "weighs 6.2kg"
+    ],
+    "use_case": "Frequent flying and city commuting",
+    "avoid_if": "Your baby is under 6 months (unless buying newborn pack) or you need rugged off-road wheels.",
+    "rating": 4.6,
+    "review_count": 2097
+  },
+  {
+    "id": "stroller-2",
+    "category": "strollers",
+    "subcategory": "travel system",
+    "brand": "UPPAbaby",
+    "product_name": "Vista V2 Stroller",
+    "price_range": "Premium",
+    "price_aed": 4500,
+    "age_range": "0-60 months",
+    "age_min_months": 0,
+    "key_features": [
+      "converts to double",
+      "huge basket",
+      "includes bassinet"
+    ],
+    "use_case": "Growing families needing double capacity",
+    "avoid_if": "You live in a walkup apartment or have a very small car boot.",
+    "rating": 4.8,
+    "review_count": 2407
+  },
+  {
+    "id": "stroller-3",
+    "category": "strollers",
+    "subcategory": "all-terrain",
+    "brand": "Joie",
+    "product_name": "Litetrax 4",
+    "price_range": "Budget",
+    "price_aed": 750,
+    "age_range": "0-48 months",
+    "age_min_months": 0,
+    "key_features": [
+      "flat recline",
+      "large wheels",
+      "budget friendly"
+    ],
+    "use_case": "Everyday use with uneven pavements",
+    "avoid_if": "You need something cabin approved for frequent flying.",
+    "rating": 4.7,
+    "review_count": 4626
+  },
+  {
+    "id": "carseat-1",
+    "category": "car_seats",
+    "subcategory": "infant carrier",
+    "brand": "Maxi-Cosi",
+    "product_name": "Pebble 360",
+    "price_range": "High",
+    "price_aed": 1200,
+    "age_range": "0-15 months",
+    "age_min_months": 0,
+    "key_features": [
+      "360 rotation with FamilyFix base",
+      "ClimaFlow temperature regulation",
+      "G-CELL side impact"
+    ],
+    "use_case": "Newborn hospital discharge and easy loading",
+    "avoid_if": "You want a seat that lasts until 4 years old (this is only up to 15 months).",
+    "rating": 4.9,
+    "review_count": 4848
+  },
+  {
+    "id": "carseat-2",
+    "category": "car_seats",
+    "subcategory": "convertible",
+    "brand": "Cybex",
+    "product_name": "Sirona S i-Size",
+    "price_range": "High",
+    "price_aed": 1850,
+    "age_range": "0-48 months",
+    "age_min_months": 0,
+    "key_features": [
+      "360 rotation",
+      "lasts to 4 years",
+      "sensor safe technology"
+    ],
+    "use_case": "Long-term car seat from birth to toddlerhood",
+    "avoid_if": "You frequently switch cars or take taxis.",
+    "rating": 4.7,
+    "review_count": 4275
+  },
+  {
+    "id": "carseat-3",
+    "category": "car_seats",
+    "subcategory": "booster",
+    "brand": "Graco",
+    "product_name": "Extend2Fit",
+    "price_range": "Mid",
+    "price_aed": 950,
+    "age_range": "0-120 months",
+    "age_min_months": 0,
+    "key_features": [
+      "extended rear facing",
+      "budget friendly",
+      "lasts up to 10 years"
+    ],
+    "use_case": "One seat for the entire childhood",
+    "avoid_if": "You drive a very small car like a Swift or Yaris.",
+    "rating": 4.7,
+    "review_count": 621
+  },
+  {
+    "id": "feeding-1",
+    "category": "feeding",
+    "subcategory": "bottles",
+    "brand": "Dr. Brown's",
+    "product_name": "Options+ Anti-Colic Bottle",
+    "price_range": "Low",
+    "price_aed": 75,
+    "age_range": "0-12 months",
+    "age_min_months": 0,
+    "key_features": [
+      "internal vent system",
+      "clinically proven to reduce colic",
+      "mimics breastfeeding"
+    ],
+    "use_case": "Babies suffering from gas and colic",
+    "avoid_if": "You want a simple, quick-to-wash bottle.",
+    "rating": 4.6,
+    "review_count": 4315
+  },
+  {
+    "id": "feeding-2",
+    "category": "feeding",
+    "subcategory": "high chairs",
+    "brand": "IKEA",
+    "product_name": "Antilop Highchair",
+    "price_range": "Low",
+    "price_aed": 85,
+    "age_range": "6-36 months",
+    "age_min_months": 6,
+    "key_features": [
+      "cheap",
+      "extremely easy to clean",
+      "removable legs"
+    ],
+    "use_case": "Messy eaters and budget-conscious parents",
+    "avoid_if": "You need a foldable chair for a very tight kitchen.",
+    "rating": 4.9,
+    "review_count": 3411
+  },
+  {
+    "id": "feeding-3",
+    "category": "feeding",
+    "subcategory": "high chairs",
+    "brand": "Stokke",
+    "product_name": "Tripp Trapp",
+    "price_range": "High",
+    "price_aed": 1100,
+    "age_range": "6+ months",
+    "age_min_months": 6,
+    "key_features": [
+      "grows with child to adulthood",
+      "ergonomic footrest",
+      "wooden design"
+    ],
+    "use_case": "Premium dining setup that lasts for life",
+    "avoid_if": "You are on a strict budget or need something that folds away.",
+    "rating": 4.8,
+    "review_count": 4816
+  },
+  {
+    "id": "nursery-1",
+    "category": "nursery",
+    "subcategory": "sleep sacks",
+    "brand": "Tommee Tippee",
+    "product_name": "Grobag Snuggle Sleep Bag",
+    "price_range": "Mid",
+    "price_aed": 150,
+    "age_range": "0-9 months",
+    "age_min_months": 0,
+    "key_features": [
+      "swaddle transition",
+      "hip healthy",
+      "temperature rated (TOG)"
+    ],
+    "use_case": "Transitioning out of swaddles safely",
+    "avoid_if": "Baby can roll over and wants arms completely free.",
+    "rating": 4.6,
+    "review_count": 2694
+  },
+  {
+    "id": "nursery-2",
+    "category": "nursery",
+    "subcategory": "monitors",
+    "brand": "Owlet",
+    "product_name": "Smart Sock 3",
+    "price_range": "High",
+    "price_aed": 1300,
+    "age_range": "0-18 months",
+    "age_min_months": 0,
+    "key_features": [
+      "tracks heart rate and oxygen",
+      "notifies via app",
+      "peace of mind"
+    ],
+    "use_case": "Anxious parents wanting biometric tracking",
+    "avoid_if": "You just need a simple video monitor without biometric tracking.",
+    "rating": 4.8,
+    "review_count": 518
+  },
+  {
+    "id": "nursery-3",
+    "category": "nursery",
+    "subcategory": "bassinets",
+    "brand": "Chicco",
+    "product_name": "Next2Me Magic",
+    "price_range": "Mid",
+    "price_aed": 999,
+    "age_range": "0-6 months",
+    "age_min_months": 0,
+    "key_features": [
+      "side-sleeping",
+      "one-hand opening",
+      "rocking mode"
+    ],
+    "use_case": "Safe co-sleeping and night feeding",
+    "avoid_if": "You want a bed that lasts for years.",
+    "rating": 4.8,
+    "review_count": 2339
+  },
+  {
+    "id": "health-1",
+    "category": "health",
+    "subcategory": "thermometers",
+    "brand": "Braun",
+    "product_name": "ThermoScan 7",
+    "price_range": "Mid",
+    "price_aed": 250,
+    "age_range": "All ages",
+    "age_min_months": 0,
+    "key_features": [
+      "age precision technology",
+      "ear thermometer",
+      "fast reading"
+    ],
+    "use_case": "Accurate fever monitoring",
+    "avoid_if": "You prefer a contactless forehead thermometer.",
+    "rating": 4.8,
+    "review_count": 4780
+  },
+  {
+    "id": "health-2",
+    "category": "health",
+    "subcategory": "humidifiers",
+    "brand": "FridaBaby",
+    "product_name": "3-in-1 Humidifier",
+    "price_range": "Mid",
+    "price_aed": 200,
+    "age_range": "All ages",
+    "age_min_months": 0,
+    "key_features": [
+      "cool mist",
+      "nightlight",
+      "diffuser"
+    ],
+    "use_case": "Relieving congestion during colds",
+    "avoid_if": "You live in an already highly humid environment.",
+    "rating": 4.8,
+    "review_count": 2486
+  },
+  {
+    "id": "health-3",
+    "category": "health",
+    "subcategory": "grooming",
+    "brand": "FridaBaby",
+    "product_name": "NoseFrida Snotsucker",
+    "price_range": "Low",
+    "price_aed": 75,
+    "age_range": "0-36 months",
+    "age_min_months": 0,
+    "key_features": [
+      "clears stuffy noses",
+      "hygiene filters included",
+      "doctor invented"
+    ],
+    "use_case": "Clearing mucus for babies who can't blow their nose",
+    "avoid_if": "You are squeamish and prefer an electric aspirator.",
+    "rating": 4.6,
+    "review_count": 1810
+  },
+  {
+    "id": "travel-1",
+    "category": "travel",
+    "subcategory": "travel cots",
+    "brand": "BabyBj\u00c3\u00b6rn",
+    "product_name": "Travel Cot Light",
+    "price_range": "High",
+    "price_aed": 1200,
+    "age_range": "0-36 months",
+    "age_min_months": 0,
+    "key_features": [
+      "weighs only 6kg",
+      "sets up in one move",
+      "includes mattress"
+    ],
+    "use_case": "Hotel stays and visiting grandparents",
+    "avoid_if": "You have a bad back and need a raised bassinet insert.",
+    "rating": 4.6,
+    "review_count": 1192
+  },
+  {
+    "id": "travel-2",
+    "category": "travel",
+    "subcategory": "carriers",
+    "brand": "Ergobaby",
+    "product_name": "Omni 360",
+    "price_range": "Mid",
+    "price_aed": 750,
+    "age_range": "0-48 months",
+    "age_min_months": 0,
+    "key_features": [
+      "all carry positions",
+      "lumbar support",
+      "no infant insert needed"
+    ],
+    "use_case": "Hands-free carrying and hiking",
+    "avoid_if": "You want a simple, lightweight fabric wrap for a newborn.",
+    "rating": 4.5,
+    "review_count": 2734
+  },
+  {
+    "id": "travel-3",
+    "category": "travel",
+    "subcategory": "accessories",
+    "brand": "Munchkin",
+    "product_name": "Brica Portable Seat",
+    "price_range": "Low",
+    "price_aed": 150,
+    "age_range": "12-36 months",
+    "age_min_months": 12,
+    "key_features": [
+      "folds flat",
+      "storage compartment",
+      "straps to dining chairs"
+    ],
+    "use_case": "Eating out at restaurants without high chairs",
+    "avoid_if": "You need a standalone high chair.",
+    "rating": 4.6,
+    "review_count": 176
+  },
+  {
+    "id": "diaper-1",
+    "category": "diapers",
+    "subcategory": "disposable",
+    "brand": "Pampers",
+    "product_name": "Premium Care Diapers",
+    "price_range": "Mid",
+    "price_aed": 85,
+    "age_range": "All ages",
+    "age_min_months": 0,
+    "key_features": [
+      "silky soft",
+      "wetness indicator",
+      "breathable materials"
+    ],
+    "use_case": "Everyday diapering",
+    "avoid_if": "Your baby has extremely sensitive skin and requires pure bamboo or cloth diapers.",
+    "rating": 4.6,
+    "review_count": 381
+  },
+  {
+    "id": "diaper-2",
+    "category": "diapers",
+    "subcategory": "pants",
+    "brand": "Huggies",
+    "product_name": "Extra Care Pants",
+    "price_range": "Mid",
+    "price_aed": 78,
+    "age_range": "9-24 months",
+    "age_min_months": 9,
+    "key_features": [
+      "easy pull-on",
+      "360 degree waistband",
+      "absorbs in seconds"
+    ],
+    "use_case": "Active toddlers who won't lie still for changes",
+    "avoid_if": "Your baby is not crawling or walking yet (use taped diapers instead).",
+    "rating": 4.9,
+    "review_count": 2325
+  },
+  {
+    "id": "diaper-3",
+    "category": "diapers",
+    "subcategory": "eco-friendly",
+    "brand": "Pureborn",
+    "product_name": "Bamboo Nappies",
+    "price_range": "Mid",
+    "price_aed": 65,
+    "age_range": "All ages",
+    "age_min_months": 0,
+    "key_features": [
+      "organic bamboo",
+      "hypoallergenic",
+      "fun prints"
+    ],
+    "use_case": "Eco-conscious parents and babies with eczema",
+    "avoid_if": "You are on a very strict budget.",
+    "rating": 4.6,
+    "review_count": 3129
+  },
+  {
+    "id": "toys-1",
+    "category": "toys",
+    "subcategory": "educational",
+    "brand": "Fisher-Price",
+    "product_name": "Linkimals Smooth Moves Sloth",
+    "price_range": "Low",
+    "price_aed": 149,
+    "age_range": "9-36 months",
+    "age_min_months": 9,
+    "key_features": [
+      "interactive lights",
+      "teaches numbers & colors",
+      "syncs with other Linkimals"
+    ],
+    "use_case": "Interactive learning and entertainment",
+    "avoid_if": "You prefer quiet, non-electronic wooden toys.",
+    "rating": 4.7,
+    "review_count": 4620
+  },
+  {
+    "id": "toys-2",
+    "category": "toys",
+    "subcategory": "wooden",
+    "brand": "Melissa & Doug",
+    "product_name": "Classic Wooden Block Set",
+    "price_range": "Low",
+    "price_aed": 99,
+    "age_range": "12-60 months",
+    "age_min_months": 12,
+    "key_features": [
+      "100 solid wood blocks",
+      "safe paints",
+      "encourages motor skills"
+    ],
+    "use_case": "Open-ended, screen-free play",
+    "avoid_if": "Your baby is under 1 year old and still aggressively chewing toys.",
+    "rating": 4.7,
+    "review_count": 1149
+  },
+  {
+    "id": "clothing-1",
+    "category": "clothing",
+    "subcategory": "onesies",
+    "brand": "Carter's",
+    "product_name": "5-Pack Long-Sleeve Bodysuits",
+    "price_range": "Low",
+    "price_aed": 85,
+    "age_range": "0-24 months",
+    "age_min_months": 0,
+    "key_features": [
+      "100% cotton",
+      "nickel-free snaps",
+      "expandable shoulders"
+    ],
+    "use_case": "Everyday wear and layering",
+    "avoid_if": "You live in extreme heat without AC.",
+    "rating": 4.5,
+    "review_count": 213
+  },
+  {
+    "id": "clothing-2",
+    "category": "clothing",
+    "subcategory": "pajamas",
+    "brand": "Burt's Bees Baby",
+    "product_name": "Organic Cotton Sleep & Play",
+    "price_range": "Mid",
+    "price_aed": 75,
+    "age_range": "0-12 months",
+    "age_min_months": 0,
+    "key_features": [
+      "GOTS certified organic",
+      "zipper guard",
+      "built-in mittens"
+    ],
+    "use_case": "Nighttime sleepwear for sensitive skin",
+    "avoid_if": "Your toddler is walking and needs footless pajamas.",
+    "rating": 4.8,
+    "review_count": 663
+  }
+]

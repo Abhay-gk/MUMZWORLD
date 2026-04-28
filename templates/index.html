@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mumzworld Universal AI Copilot</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --brand: #E8445A; /* Mumzworld Pink */
+      --brand-dark: #C93043;
+      --brand-light: #FFCCD2;
+      --accent-blue: #4AA1D5;
+      --accent-blue-light: #E1F2FB;
+      --text: #2D3748;
+      --text-muted: #718096;
+      --bg: #F8FAFC;
+      --border: #E2E8F0;
+      --success: #38A169;
+      --success-bg: #F0FFF4;
+      --warn: #DD6B20;
+      --warn-bg: #FFFAF0;
+      --danger: #E53E3E;
+      --danger-bg: #FFF5F5;
+      --radius: 20px;
+      --radius-sm: 12px;
+      --shadow: 0 10px 25px rgba(0,0,0,0.05);
+      --shadow-lg: 0 20px 40px rgba(232,68,90,0.1);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Nunito', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex; flex-direction: column;
+    }
+
+    /* ── Hero Header ──────────────────────────────────────────── */
+    .hero-header {
+      position: relative;
+      background: #fff;
+      padding: 0;
+      text-align: center;
+      overflow: hidden;
+      margin-bottom: -60px; /* pull container up */
+    }
+
+    .hero-bg {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: url('/static/hero.png') center/cover no-repeat;
+      opacity: 0.15;
+      z-index: 0;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      padding: 60px 20px 100px;
+      background: linear-gradient(to bottom, rgba(255,255,255,0.7) 0%, rgba(248,250,252,1) 100%);
+    }
+
+    .logo-container {
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+      margin-bottom: 24px;
+    }
+    
+    .logo-text {
+      font-size: 28px;
+      font-weight: 900;
+      letter-spacing: -0.5px;
+      color: var(--text);
+    }
+    .logo-text span {
+      color: var(--brand);
+    }
+
+    .ai-badge {
+      background: linear-gradient(135deg, var(--brand), #FF8C69);
+      color: white;
+      padding: 4px 12px;
+      border-radius: 100px;
+      font-size: 13px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      box-shadow: 0 4px 10px rgba(232,68,90,0.3);
+    }
+
+    h1 {
+      font-size: clamp(32px, 5vw, 56px);
+      font-weight: 900;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      margin-bottom: 16px;
+      color: var(--text);
+    }
+
+    .subtitle {
+      font-size: 18px;
+      font-weight: 500;
+      color: var(--text-muted);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* ── Layout wrapper ──────────────────────────────────── */
+    .container {
+      position: relative; z-index: 2;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 20px 80px;
+      flex: 1;
+    }
+
+    /* ── Input card ───────────────────────────────────────── */
+    .input-card {
+      background: white;
+      border-radius: var(--radius);
+      padding: 36px;
+      box-shadow: var(--shadow);
+      margin-bottom: 30px;
+      border: 1px solid rgba(0,0,0,0.03);
+    }
+
+    .greeting-text {
+      font-size: 20px;
+      font-weight: 800;
+      margin-bottom: 20px;
+      color: var(--brand);
+      display: flex; align-items: center; gap: 10px;
+    }
+
+    textarea {
+      width: 100%;
+      min-height: 120px;
+      border: 2px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 18px 20px;
+      font-family: 'Nunito', sans-serif;
+      font-size: 16px;
+      color: var(--text);
+      resize: vertical;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      background: var(--bg);
+      line-height: 1.6;
+    }
+    textarea:focus {
+      outline: none;
+      border-color: var(--brand);
+      background: white;
+      box-shadow: 0 0 0 4px rgba(232,68,90,0.15);
+    }
+    textarea::placeholder { color: #A0AEC0; font-weight: 500; }
+
+    /* Example prompts */
+    .examples-label {
+      font-size: 13px; font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin: 20px 0 12px;
+    }
+    .example-chips { display: flex; gap: 10px; flex-wrap: wrap; }
+    .example-chip {
+      padding: 8px 16px;
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex; align-items: center; gap: 6px;
+    }
+    .example-chip:hover {
+      background: var(--brand-light);
+      border-color: var(--brand);
+      color: var(--brand-dark);
+      transform: translateY(-2px);
+    }
+
+    /* Submit button */
+    .btn-submit {
+      display: flex; align-items: center; justify-content: center; gap: 12px;
+      width: 100%;
+      margin-top: 24px;
+      padding: 18px;
+      background: var(--brand);
+      border: none;
+      border-radius: var(--radius-sm);
+      color: white;
+      font-family: 'Nunito', sans-serif;
+      font-size: 18px; font-weight: 800;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      box-shadow: 0 6px 20px rgba(232,68,90,0.3);
+    }
+    .btn-submit:hover:not(:disabled) {
+      background: var(--brand-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(232,68,90,0.4);
+    }
+    .btn-submit:disabled { opacity: 0.6; cursor: not-allowed; transform: none; box-shadow: none; }
+
+    /* ── Loading state ────────────────────────────────────── */
+    #loading {
+      display: none;
+      background: white;
+      border-radius: var(--radius);
+      padding: 40px;
+      text-align: center;
+      box-shadow: var(--shadow);
+      margin-bottom: 30px;
+      border: 1px solid var(--border);
+    }
+    .loading-pulse {
+      width: 60px; height: 60px;
+      margin: 0 auto 20px;
+      border-radius: 50%;
+      background: var(--brand-light);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 28px;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(232,68,90,0.4); }
+      70% { box-shadow: 0 0 0 20px rgba(232,68,90,0); }
+      100% { box-shadow: 0 0 0 0 rgba(232,68,90,0); }
+    }
+    .loading-message { font-size: 18px; font-weight: 700; color: var(--text); margin-bottom: 8px; }
+    .loading-sub { font-size: 15px; font-weight: 500; color: var(--text-muted); }
+
+    /* ── Clarifying question ──────────────────────────────── */
+    #clarify-box {
+      display: none;
+      background: var(--accent-blue-light);
+      border: 1px solid var(--accent-blue);
+      border-radius: var(--radius);
+      padding: 24px 30px;
+      box-shadow: var(--shadow);
+      margin-bottom: 30px;
+      animation: slideDown 0.4s ease backwards;
+    }
+    .clarify-header {
+      display: flex; align-items: center; gap: 10px; margin-bottom: 8px;
+      color: var(--accent-blue); font-weight: 800; font-size: 14px; text-transform: uppercase;
+    }
+    #clarify-box p { font-size: 18px; font-weight: 600; color: var(--text); }
+
+    /* ── Understood banner ─────────────────────────────── */
+    #understood-banner {
+      display: none;
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px 24px;
+      margin-bottom: 30px;
+      box-shadow: var(--shadow);
+      animation: slideDown 0.5s ease backwards;
+      display: flex; flex-direction: column; gap: 12px;
+    }
+    .intent-row { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+    .intent-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: var(--brand); color: white;
+      font-size: 12px; font-weight: 800; text-transform: uppercase;
+      padding: 6px 12px; border-radius: 100px; letter-spacing: 0.5px;
+    }
+    .cat-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: var(--accent-blue-light); color: #2B6CB0;
+      font-size: 13px; font-weight: 700; text-transform: uppercase;
+      padding: 6px 12px; border-radius: 100px;
+    }
+    .constraint-pills { display: flex; gap: 8px; flex-wrap: wrap; }
+    .pill {
+      background: var(--bg); border: 1px solid var(--border);
+      padding: 6px 14px; border-radius: 100px; font-size: 13px; font-weight: 600; color: var(--text-muted);
+    }
+
+    /* ── Results section ──────────────────────────────────── */
+    #results { display: none; }
+    .results-heading {
+      font-size: 28px; font-weight: 900;
+      margin-bottom: 24px;
+      color: var(--text);
+    }
+    
+    .fallback-note {
+      background: linear-gradient(135deg, rgba(232,68,90,0.05), rgba(255,140,105,0.05));
+      border: 1px solid rgba(232,68,90,0.15);
+      border-radius: var(--radius-sm);
+      padding: 16px 20px; font-size: 14px; font-weight: 700; color: var(--brand);
+      margin-bottom: 24px; display: flex; align-items: center; gap: 10px;
+    }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 24px;
+    }
+
+    /* ── Product card ─────────────────────────────────────── */
+    .product-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      display: flex; flex-direction: column;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      animation: slideUp 0.6s ease backwards;
+    }
+    .product-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--brand-light);
+    }
+    .product-card:nth-child(1) { animation-delay: 0.1s; }
+    .product-card:nth-child(2) { animation-delay: 0.2s; }
+    .product-card:nth-child(3) { animation-delay: 0.3s; }
+
+    @keyframes slideUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes slideDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
+
+    .card-img {
+      width: 100%; height: 160px;
+      display: flex; align-items: center; justify-content: center;
+      position: relative;
+    }
+    .card-img.strollers { background: linear-gradient(135deg, #FF9A9E, #FECFEF); }
+    .card-img.car_seats { background: linear-gradient(135deg, #a18cd1, #fbc2eb); }
+    .card-img.feeding { background: linear-gradient(135deg, #84fab0, #8fd3f4); }
+    .card-img.nursery { background: linear-gradient(135deg, #fccb90, #d57eeb); }
+    .card-img.health { background: linear-gradient(135deg, #e0c3fc, #8ec5fc); }
+    .card-img.travel { background: linear-gradient(135deg, #f6d365, #fda085); }
+    .card-img.diapers { background: linear-gradient(135deg, #a8edea, #fed6e3); }
+    .card-img.toys { background: linear-gradient(135deg, #ff9a44, #fc6076); }
+    .card-img.clothing { background: linear-gradient(135deg, #a1c4fd, #c2e9fb); }
+    
+    .card-emoji { font-size: 70px; filter: drop-shadow(0 10px 10px rgba(0,0,0,0.1)); transition: transform 0.3s ease; }
+    .product-card:hover .card-emoji { transform: scale(1.1) rotate(5deg); }
+    
+    .rank-badge {
+      position: absolute; top: 12px; left: 12px;
+      background: rgba(255,255,255,0.9); color: var(--text); box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      border-radius: 100px; padding: 6px 14px; font-size: 12px; font-weight: 800; text-transform: uppercase;
+      backdrop-filter: blur(4px);
+    }
+
+    .card-body { padding: 24px; flex: 1; display: flex; flex-direction: column; gap: 16px; }
+
+    .card-header { border-bottom: 1px solid var(--border); padding-bottom: 16px; }
+    .cat-label { font-size: 11px; font-weight: 800; color: var(--accent-blue); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; }
+    .card-brand { font-size: 14px; font-weight: 700; color: var(--text-muted); }
+    .card-name { font-size: 18px; font-weight: 900; color: var(--text); line-height: 1.3; }
+    .card-pricerow { display: flex; align-items: center; justify-content: space-between; margin-top: 12px; }
+    .card-price { font-size: 22px; font-weight: 900; color: var(--brand); }
+    .card-rating { display: flex; align-items: center; gap: 4px; font-size: 13px; font-weight: 600; color: var(--text-muted); }
+    .star { color: #F59E0B; }
+
+    .info-section { border-radius: var(--radius-sm); padding: 14px; }
+    .info-label { display: flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px; }
+    .info-text { font-size: 14px; font-weight: 500; line-height: 1.5; }
+
+    .section-fit { background: var(--success-bg); }
+    .section-fit .info-label { color: var(--success); }
+    .section-fit .info-text { color: #22543D; }
+
+    .section-warn { background: var(--warn-bg); }
+    .section-warn .info-label { color: var(--warn); }
+    .section-warn .info-text { color: #7B341E; }
+
+    .btn-view {
+      margin-top: auto; padding: 14px;
+      background: var(--text); color: white; border: none; border-radius: var(--radius-sm);
+      font-family: 'Nunito', sans-serif; font-size: 16px; font-weight: 800;
+      cursor: pointer; text-decoration: none; text-align: center; transition: background 0.2s;
+    }
+    .btn-view:hover { background: var(--brand); }
+
+    /* ── Error ────────────────────────────────────────────── */
+    #error-box {
+      display: none; background: var(--danger-bg); border: 1px solid #FECACA; border-radius: var(--radius-sm);
+      padding: 16px 20px; color: var(--danger); font-size: 15px; font-weight: 600; margin-bottom: 20px;
+    }
+
+    /* ── Footer ───────────────────────────────────────────── */
+    footer {
+      text-align: center; padding: 40px 20px; font-size: 14px; font-weight: 600; color: var(--text-muted);
+      background: white; border-top: 1px solid var(--border); margin-top: auto;
+    }
+    footer span { color: var(--brand); font-weight: 800; }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 32px; }
+      .input-card { padding: 24px 20px; }
+      .cards-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="hero-header">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="logo-container">
+      <div class="logo-text">mumz<span>world</span></div>
+      <div class="ai-badge">AI Copilot</div>
+    </div>
+    <h1>Motherhood is a journey.<br/>Shopping for it shouldn't be.</h1>
+    <p class="subtitle">Tell Aisha, your intelligent shopping companion, exactly what you need. From tight budgets to tiny apartments, she finds the perfect fit across our entire catalog.</p>
+  </div>
+</div>
+
+<div class="container">
+  
+  <div class="input-card">
+    <div class="greeting-text">
+      <span>👋</span> Tell me about your baby and your lifestyle.
+    </div>
+
+    <textarea
+      id="query-input"
+      placeholder="e.g. My 6-month-old isn't sleeping well and she has a bad cold. We live in a small apartment. Budget is around 1000 AED."
+    ></textarea>
+
+    <p class="examples-label">Try asking about</p>
+    <div class="example-chips">
+      <div class="example-chip" onclick="fillExample(this)">✈️ Traveling with toddler</div>
+      <div class="example-chip" onclick="fillExample(this)">😴 Sleep regression</div>
+      <div class="example-chip" onclick="fillExample(this)">🏙️ Small apartment gear</div>
+      <div class="example-chip" onclick="fillExample(this)">💰 Stroller under 1000 AED</div>
+      <div class="example-chip" onclick="fillExample(this)">🍼 Colic solutions</div>
+    </div>
+
+    <div id="error-box"></div>
+
+    <button class="btn-submit" id="submit-btn" onclick="getRecommendation()">
+      Ask Aisha <span>✨</span>
+    </button>
+  </div>
+
+  <div id="loading">
+    <div class="loading-pulse">💡</div>
+    <p class="loading-message" id="loading-message">Aisha is thinking...</p>
+    <p class="loading-sub">Scanning thousands of products and matching constraints.</p>
+  </div>
+
+  <div id="clarify-box">
+    <div class="clarify-header"><span>💬</span> Aisha says</div>
+    <p id="clarify-text"></p>
+  </div>
+
+  <div id="understood-banner" style="display:none;">
+    <div class="intent-row">
+      <span class="intent-badge" id="intent-badge">INTENT</span>
+      <div id="cat-badges"></div>
+    </div>
+    <div class="constraint-pills" id="constraint-pills"></div>
+  </div>
+
+  <div id="results">
+    <p class="results-heading">Your Perfect Matches</p>
+    <div id="fallback-note" class="fallback-note" style="display:none;">
+      <span>✨</span> Aisha's Fast Picks: Perfectly matched to your family's profile based on Mumzworld best-sellers.
+    </div>
+    <div class="cards-grid" id="cards-grid"></div>
+  </div>
+
+</div>
+
+<footer>
+  Built for the <span>Mumzworld AI-Native Product Intern</span> Assignment.
+</footer>
+
+<script>
+  const EXAMPLE_MAP = {
+    "✈️ Traveling with toddler": "I am traveling on a long flight with my 18-month-old toddler. I need something to easily carry them and maybe something for them to sleep in at the hotel. Budget is 2000 AED.",
+    "😴 Sleep regression": "My 6-month-old isn't sleeping well at all. Need some gear to help.",
+    "🏙️ Small apartment gear": "We live in a tiny flat on the 5th floor with a small elevator. I need a stroller for a newborn.",
+    "💰 Stroller under 1000 AED": "Need a sturdy stroller but my absolute max budget is 1000 AED.",
+    "🍼 Colic solutions": "My 2-month old has terrible colic and gas. I need feeding bottles that actually work."
+  };
+
+  function fillExample(el) {
+    const text = el.textContent.trim();
+    document.getElementById('query-input').value = EXAMPLE_MAP[text] || text;
+  }
+
+  const LOADING_MSGS = [
+    "Aisha is thinking...",
+    "Understanding your lifestyle needs...",
+    "Mapping constraints across categories...",
+    "Finding the absolute best fits...",
+  ];
+  let loadingTimer = null;
+
+  function startLoadingCycle() {
+    let i = 0;
+    const el = document.getElementById('loading-message');
+    el.textContent = LOADING_MSGS[0];
+    loadingTimer = setInterval(() => {
+      i = (i + 1) % LOADING_MSGS.length;
+      el.textContent = LOADING_MSGS[i];
+    }, 2000);
+  }
+  function stopLoadingCycle() { clearInterval(loadingTimer); }
+
+  function show(id)  { document.getElementById(id).style.display = ''; }
+  function hide(id)  { document.getElementById(id).style.display = 'none'; }
+  function block(id) { document.getElementById(id).style.display = 'block'; }
+  function flex(id)  { document.getElementById(id).style.display = 'flex'; }
+
+  function resetUI() {
+    hide('loading'); hide('results'); hide('clarify-box'); hide('understood-banner');
+    hide('error-box'); hide('fallback-note');
+    document.getElementById('cards-grid').innerHTML = '';
+  }
+
+  function buildPills(constraints) {
+    const map = {
+      budget_max:       v => constraints.currency_note ? `💰 Budget ≤ ${constraints.currency_note}` : `💰 Budget ≤ AED ${v}`,
+      baby_age_months:  v => `👶 Age: ${v} months`,
+    };
+    return Object.entries(constraints)
+      .filter(([k]) => map[k] && k !== 'currency_note')
+      .map(([k, v]) => `<span class="pill">${map[k](v)}</span>`)
+      .join('');
+  }
+
+  function renderCards(picks, productMap) {
+    const ranks = ['🥇 Top Pick', '🥈 Great Alternative', '🥉 Also Consider'];
+    const grid = document.getElementById('cards-grid');
+    grid.innerHTML = '';
+
+    picks.forEach((pick, idx) => {
+      const p = productMap[pick.product_id];
+      if (!p) return;
+
+      const stars = '★'.repeat(Math.round(p.rating || 4)) + '☆'.repeat(5 - Math.round(p.rating || 4));
+      
+      let emoji = '📦';
+      if (p.category === 'strollers') emoji = '🛽';
+      if (p.category === 'car_seats') emoji = '🚗';
+      if (p.category === 'feeding') emoji = '🍼';
+      if (p.category === 'nursery') emoji = '🛏️';
+      if (p.category === 'diapers') emoji = '🧻';
+      if (p.category === 'toys') emoji = '🧸';
+      if (p.category === 'clothing') emoji = '👕';
+
+      const card = document.createElement('div');
+      card.className = 'product-card';
+      card.innerHTML = `
+        <div class="card-img ${p.category}">
+          <div class="rank-badge">${ranks[idx] || `#${idx+1}`}</div>
+          <div class="card-emoji">${emoji}</div>
+        </div>
+        <div class="card-body">
+          <div class="card-header">
+            <div class="cat-label">${p.category.replace('_', ' ')}</div>
+            <div style="display:flex; justify-content:space-between; align-items:flex-end;">
+              <div>
+                <p class="card-brand">${p.brand}</p>
+                <p class="card-name">${p.product_name || p.name}</p>
+              </div>
+            </div>
+            <div class="card-pricerow">
+              <span class="card-price">AED ${p.price_aed?.toLocaleString()}</span>
+              <span class="card-rating"><span class="star">${stars[0]}</span> ${p.rating} (${p.review_count?.toLocaleString()})</span>
+            </div>
+          </div>
+
+          <div class="info-section section-fit">
+            <div class="info-label">✨ Why Aisha Chose This</div>
+            <p class="info-text">${pick.why_recommended}</p>
+          </div>
+
+          <div class="info-section section-warn">
+            <div class="info-label">⚠️ Tradeoffs to know</div>
+            <p class="info-text">${pick.tradeoffs}</p>
+          </div>
+
+          <a class="btn-view" href="${p.product_url || '#'}" target="_blank">
+            View on Mumzworld →
+          </a>
+        </div>
+      `;
+      grid.appendChild(card);
+    });
+  }
+
+  async function getRecommendation() {
+    const query = document.getElementById('query-input').value.trim();
+    const errBox = document.getElementById('error-box');
+
+    if (!query) {
+      errBox.textContent = 'Please tell Aisha what you are looking for first.';
+      block('error-box'); return;
+    }
+
+    resetUI(); block('loading'); startLoadingCycle();
+    document.getElementById('submit-btn').disabled = true;
+
+    try {
+      const res = await fetch('/recommend', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ query }),
+      });
+
+      const data = await res.json();
+      stopLoadingCycle(); hide('loading');
+
+      if (!res.ok || data.error) {
+        if (data.error && data.error.includes("I hear you") || data.error.includes("Hi there")) {
+           document.getElementById('clarify-text').textContent = data.error;
+           block('clarify-box');
+        } else {
+           errBox.textContent = data.error || 'Something went wrong. Please try again.';
+           block('error-box');
+        }
+        document.getElementById('submit-btn').disabled = false;
+        return;
+      }
+
+      if (data.chat_response) {
+        document.getElementById('clarify-text').textContent = data.chat_response;
+        block('clarify-box');
+        document.getElementById('submit-btn').disabled = false;
+        return;
+      }
+
+      if (data.clarifying_question) {
+        document.getElementById('clarify-text').textContent = data.clarifying_question;
+        block('clarify-box');
+        document.getElementById('submit-btn').disabled = false;
+        return;
+      }
+
+      if (data.detected_intent || data.relevant_categories) {
+        document.getElementById('intent-badge').textContent = (data.detected_intent || 'EXPLORING') + ' MODE';
+        const cats = data.relevant_categories || [];
+        document.getElementById('cat-badges').innerHTML = cats.map(c => `<span class="cat-badge">${c.replace('_',' ')}</span>`).join('');
+        document.getElementById('constraint-pills').innerHTML = buildPills(data.constraints || {});
+        flex('understood-banner');
+      }
+
+      if (data.fallback) show('fallback-note');
+
+      if (data.recommendations && data.recommendations.length > 0) {
+        renderCards(data.recommendations, data.products || {});
+        block('results');
+        document.getElementById('results').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      } else {
+        errBox.textContent = "No matching products found. Try broadening your description.";
+        block('error-box');
+      }
+
+    } catch (err) {
+      stopLoadingCycle(); hide('loading');
+      errBox.textContent = 'Network error — is the server running? (' + err.message + ')';
+      block('error-box');
+    }
+    document.getElementById('submit-btn').disabled = false;
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    document.getElementById('query-input').addEventListener('keydown', e => {
+      if (e.key === 'Enter' && (e.ctrlKey || e.metaKey)) getRecommendation();
+    });
+  });
+</script>
+</body>
+</html>
