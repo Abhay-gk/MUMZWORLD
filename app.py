@@ -319,6 +319,24 @@ def recommend():
     if not query:
         return jsonify({"error": "Please describe your situation first."}), 400
 
+    # 0. Catch pure greetings / chitchat BEFORE any product logic
+    q_words = query.lower().split()
+    GREETINGS = {"hi", "hello", "hey", "hiya", "sup", "yo", "howdy"}
+    if len(q_words) <= 3 and any(w in GREETINGS for w in q_words):
+        return jsonify({
+            "chat_response": "Hi there! 👋 I'm Aisha, your Mumzworld AI Advisor. Tell me about your baby and your lifestyle — budget, age, what challenge you're facing — and I'll find the perfect fit! 🌸"
+        })
+
+    # 0b. Catch medical/distress queries BEFORE any product logic
+    DISTRESS_WORDS = ["vomit", "vomiting", "fever", "sick", "diarrhea", "choking",
+                      "rash", "bleeding", "doctor", "hospital", "pain", "hurt",
+                      "emergency", "breathe", "breathing", "seizure", "faint"]
+    q_lower_check = query.lower()
+    if any(w in q_lower_check for w in DISTRESS_WORDS):
+        return jsonify({
+            "chat_response": "I hear you, and I know how frightening it is when your little one isn't well. 💛 Please consult a pediatrician or call your healthcare provider immediately — your baby's health always comes first. Once everything is okay, I'm here to help with any baby gear you need! ❤️"
+        })
+
     # 1. Rule layer
     constraints = extract_constraints(query)
     if category_override:

@@ -547,10 +547,12 @@
       const stars = '★'.repeat(Math.round(p.rating || 4)) + '☆'.repeat(5 - Math.round(p.rating || 4));
       
       let emoji = '📦';
-      if (p.category === 'strollers') emoji = '🛽';
+      if (p.category === 'strollers') emoji = '🚼';
       if (p.category === 'car_seats') emoji = '🚗';
       if (p.category === 'feeding') emoji = '🍼';
-      if (p.category === 'nursery') emoji = '🛏️';
+      if (p.category === 'nursery') emoji = '🌙';
+      if (p.category === 'health') emoji = '❤️';
+      if (p.category === 'travel') emoji = '✈️';
       if (p.category === 'diapers') emoji = '🧻';
       if (p.category === 'toys') emoji = '🧸';
       if (p.category === 'clothing') emoji = '👕';
