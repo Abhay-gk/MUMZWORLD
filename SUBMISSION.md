@@ -14,9 +14,29 @@ I built **Aisha**, a Universal AI Shopping Copilot for Mumzworld, designed for f
 
 ## Prototype Access
 
-**Run locally** — see `README.md` for full setup instructions (2-step: `ollama serve` + `python app.py`).
+**GitHub Repo:** [https://github.com/Abhay-gk/MUMZWORLD](https://github.com/Abhay-gk/MUMZWORLD)
 
-> **Repo structure**: All source code, documentation, and evaluation files are in this directory.
+**Run locally:**
+```bash
+# 1. Clone the repo
+git clone https://github.com/Abhay-gk/MUMZWORLD.git
+cd MUMZWORLD
+
+# 2. Install dependencies
+pip install -r requirements.txt
+
+# 3. Pull the Phi-3 model (first time only, ~2GB)
+ollama pull phi3
+
+# 4. Start Ollama (keep running in a separate terminal)
+ollama serve
+
+# 5. Start the app
+python app.py
+# → Open http://localhost:5000
+```
+
+> Windows users: run `setup.bat` for a one-click startup.
 
 ---
 
